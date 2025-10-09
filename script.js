@@ -37,7 +37,6 @@ window.addEventListener('scroll', () => {
     
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
         if (scrollY >= (sectionTop - 200)) {
             current = section.getAttribute('id');
         }
@@ -111,28 +110,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Form handling (if you add a contact form later)
-function handleFormSubmit(event) {
-    event.preventDefault();
-    // Add your form handling logic here
-    alert('Thank you for your message! I\'ll get back to you soon.');
-}
-
 // Easter egg: Konami code
-let konamiCode = [];
-const konamiSequence = [
+let cheatCode = [];
+const specialCode = [
     'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
-    'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
-    'KeyB', 'KeyA'
 ];
 
 document.addEventListener('keydown', (e) => {
-    konamiCode.push(e.code);
-    if (konamiCode.length > konamiSequence.length) {
-        konamiCode.shift();
+    cheatCode.push(e.code);
+    if (cheatCode.length > specialCode.length) {
+        cheatCode.shift();
     }
     
-    if (konamiCode.join('') === konamiSequence.join('')) {
+    if (cheatCode.join('') === specialCode.join('')) {
         // Easter egg activated!
         document.body.style.transform = 'rotate(360deg)';
         document.body.style.transition = 'transform 2s';
@@ -140,7 +130,7 @@ document.addEventListener('keydown', (e) => {
             document.body.style.transform = 'none';
             alert('🎉 You found the easter egg! 🎉');
         }, 2000);
-        konamiCode = [];
+        cheatCode = [];
     }
 });
 
@@ -172,39 +162,30 @@ Built with vanilla HTML, CSS, and JavaScript.
 No frameworks needed for this clean, responsive design.
 `);
 
-// Analytics placeholder (replace with your analytics code)
-function trackEvent(category, action, label) {
-    // Example: Google Analytics event tracking
-    // gtag('event', action, {
-    //     event_category: category,
-    //     event_label: label
-    // });
-    console.log(`Event tracked: ${category} - ${action} - ${label}`);
-}
-
+//TODO:
 // Track clicks on important elements
-document.addEventListener('DOMContentLoaded', () => {
-    // Track social link clicks
-    document.querySelectorAll('.social-link, .social-btn').forEach(link => {
-        link.addEventListener('click', () => {
-            const platform = link.href.includes('github') ? 'GitHub' : 
-                           link.href.includes('linkedin') ? 'LinkedIn' : 'Email';
-            trackEvent('Social', 'Click', platform);
-        });
-    });
+// document.addEventListener('DOMContentLoaded', () => {
+//     // Track social link clicks
+//     document.querySelectorAll('.social-link, .social-btn').forEach(link => {
+//         link.addEventListener('click', () => {
+//             const platform = link.href.includes('github') ? 'GitHub' : 
+//                            link.href.includes('linkedin') ? 'LinkedIn' : 'Email';
+//             trackEvent('Social', 'Click', platform);
+//         });
+//     });
 
-    // Track project link clicks
-    document.querySelectorAll('.project-link').forEach(link => {
-        link.addEventListener('click', () => {
-            const type = link.textContent.includes('Code') ? 'Code' : 'Demo';
-            trackEvent('Project', 'Click', type);
-        });
-    });
+//     // Track project link clicks
+//     document.querySelectorAll('.project-link').forEach(link => {
+//         link.addEventListener('click', () => {
+//             const type = link.textContent.includes('Code') ? 'Code' : 'Demo';
+//             trackEvent('Project', 'Click', type);
+//         });
+//     });
 
-    // Track button clicks
-    document.querySelectorAll('.btn').forEach(button => {
-        button.addEventListener('click', () => {
-            trackEvent('Button', 'Click', button.textContent.trim());
-        });
-    });
-});
+//     // Track button clicks
+//     document.querySelectorAll('.btn').forEach(button => {
+//         button.addEventListener('click', () => {
+//             trackEvent('Button', 'Click', button.textContent.trim());
+//         });
+//     });
+// });
