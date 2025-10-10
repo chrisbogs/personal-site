@@ -304,6 +304,17 @@ body {
     line-height: 1.6;
 }
 
+.project-highlights ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 1.5rem 0;
+}
+
+.project-highlights li {
+    padding: 0.5rem 0;
+    color: #555;
+    line-height: 1.5;
+}
 .project-tech {
     display: flex;
     flex-wrap: wrap;
